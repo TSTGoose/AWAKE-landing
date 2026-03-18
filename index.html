@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Видео, которое продаёт — производство полного цикла</title>
+    <!-- Подключение CSS (будет отдельно) -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Lucide иконки (для инициализации через JS) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Glow эффект (фон) -->
+    <div class="glow-effect">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+        <div class="glow-3"></div>
+    </div>
+
+    <!-- Шапка (sticky) -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i data-lucide="film" class="icon"></i>
+                </div>
+                <div>
+                    <div class="logo-text">Production</div>
+                    <div class="logo-sub">полный цикл / цены как у фрилансера</div>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="#cases">Кейсы</a>
+                <a href="#calculator">Калькулятор</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#order">Заявка</a>
+            </nav>
+            <a href="#order" class="header-btn">Оставить заявку</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO секция -->
+        <section class="hero">
+            <div class="container">
+                <span class="hero-badge">Качество топ‑студии · цена фрилансера</span>
+                <h1 class="hero-title">Сколько клиентов вы теряете из-за <span class="gradient-text">любительского видео</span>?</h1>
+                <p class="hero-subtitle">
+                    Фрилансеры срывают дедлайны. Студии просят 50 000 ₽ за рилс. Мы делаем видео, которое продаёт, с фиксированными сроками и прозрачной ценой.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#calculator" class="btn btn-primary">Рассчитать стоимость за 1 минуту <i data-lucide="arrow-right" class="icon"></i></a>
+                    <a href="#cases" class="btn btn-outline"><i data-lucide="play" class="icon"></i> Смотреть кейсы</a>
+                </div>
+                <!-- Метрики -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">117K</div>
+                        <div class="metric-label">подписчиков у Юлии Шустрой</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">6.5M</div>
+                        <div class="metric-label">просмотров у одного рилс</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">150+</div>
+                        <div class="metric-label">рилс/мес для Vitruvin</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">1.5 г</div>
+                        <div class="metric-label">непрерывного сотрудничества</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок "Нам доверяют" (клиенты) -->
+        <section class="clients">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-subtitle">Доверие</div>
+                    <h2 class="section-title">НАМ ДОВЕРЯЮТ ТОП-ЭКСПЕРТЫ И БРЕНДЫ</h2>
+                </div>
+                <div class="clients-grid">
+                    <div class="client-card">
+                        <div class="client-name">Юлия Шустрая</div>
+                        <div class="client-role">репортёр «Россия 24», курсы «Дизайн речи»</div>
+                        <p class="client-desc">Закрыли набор на курсы. Отдельные рилс — миллионные просмотры. Аккаунт вырос до 117К.</p>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Кристина Егиазарова</div>
+                        <div class="client-role">Топ‑1 в нише астрологии</div>
+                        <p class="client-desc">440 рилс в месяц. Полное ведение контент-фабрики.</p>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Vitruvin</div>
+                        <div class="client-role">БАДы</div>
+                        <p class="client-desc">150+ рилс за месяц, продажи на сайт. Сотрудничество 1.5 года.</p>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Pro Voice</div>
+                        <div class="client-role">школа по голосу</div>
+                        <p class="client-desc">Упаковка контента для крупнейшей школы.</p>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">Фестиваль «Студвесна»</div>
+                        <div class="client-role">Всероссийский</div>
+                        <p class="client-desc">Официальные видеографы в составе команды.</p>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-name">PATRIOT</div>
+                        <div class="client-role">бренд</div>
+                        <p class="client-desc">Качественные обзорные видео для бренда.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- КЕЙСЫ с видео-плейсхолдерами -->
+        <section id="cases" class="cases">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-subtitle">Кейсы</div>
+                    <h2 class="section-title">РЕЗУЛЬТАТЫ, КОТОРЫЕ ГОВОРЯТ САМИ ЗА СЕБЯ</h2>
+                </div>
+                <div class="cases-grid">
+                    <div class="case-item">
+                        <div class="video-placeholder">
+                            <i data-lucide="play" class="icon-large"></i>
+                        </div>
+                        <div class="case-content">
+                            <h3>Юлия Шустрая: от 0 до 117 000 подписчиков</h3>
+                            <p class="case-task">Задача: рилсы для прогрева и продажи курсов по ораторскому мастерству (средний чек 80 000₽).</p>
+                            <ul class="case-results">
+                                <li>✓ Рост аккаунта до 117 000 подписчиков</li>
+                                <li>✓ Средний охват видео 20 000</li>
+                                <li>✓ Рилс-миллионник и один на 6.5 млн просмотров</li>
+                                <li>✓ Полное закрытие мест на курсах каждые 3 месяца</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="case-item">
+                        <div class="video-placeholder">
+                            <i data-lucide="play" class="icon-large"></i>
+                        </div>
+                        <div class="case-content">
+                            <h3>Vitruvin: 150+ рилсов в месяц на протяжении 1.5 лет</h3>
+                            <p class="case-task">Бренд БАДов, масштабирование продаж через ИИ-рекламные рилс.</p>
+                            <ul class="case-results">
+                                <li>✓ 150+ рилсов за месяц, иногда 30 рилсов за сутки</li>
+                                <li>✓ Регулярные заказы на протяжении полутора лет</li>
+                                <li>✓ Стабильный поток заявок с видео</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества / Как мы работаем -->
+        <section class="benefits">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-subtitle">Почему мы</div>
+                    <h2 class="section-title">ПРОЗРАЧНО, БЫСТРО, ПОД КЛЮЧ</h2>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i data-lucide="calculator" class="icon-large"></i>
+                        <h3>Прозрачный расчёт</h3>
+                        <p>Цена формируется сразу, без скрытых платежей.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i data-lucide="clock" class="icon-large"></i>
+                        <h3>Фиксированные сроки</h3>
+                        <p>Дедлайны не срываем: 5 роликов за 1 день.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i data-lucide="list-checks" class="icon-large"></i>
+                        <h3>Детали работ видны</h3>
+                        <p>В каждом тарифе расписано, что получите.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i data-lucide="palette" class="icon-large"></i>
+                        <h3>Под ваш стиль</h3>
+                        <p>Адаптируем под фирменный стиль и пожелания.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- КАЛЬКУЛЯТОР (центральный элемент) -->
+        <section id="calculator" class="calculator">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-subtitle">Калькулятор</div>
+                    <h2 class="section-title">РАССЧИТАЙТЕ ТОЧНУЮ СТОИМОСТЬ ЗА 1 МИНУТУ</h2>
+                    <p class="section-description">Выберите услугу, настройте параметры и увидите итоговую цену и состав работ. Прозрачно, без скрытых платежей.</p>
+                </div>
+
+                <!-- Основной блок калькулятора -->
+                <div class="calculator-grid">
+                    <!-- Левая панель (настройки) -->
+                    <div class="calculator-settings glass-card">
+                        <div class="calculator-header">
+                            <i data-lucide="calculator" class="icon"></i>
+                            <span>Калькулятор проекта</span>
+                        </div>
+
+                        <!-- Вкладки категорий -->
+                        <div class="tabs">
+                            <button data-category="reels" class="tab-btn active">Reels / Shorts</button>
+                            <button data-category="shoot" class="tab-btn">Съёмка</button>
+                            <button data-category="podcast" class="tab-btn">Подкасты</button>
+                            <button data-category="youtube" class="tab-btn">YouTube</button>
+                        </div>
+
+                        <!-- Reels / Shorts -->
+                        <div id="reels-options" class="category-options">
+                            <div class="option-group">
+                                <div class="option-label">Тип монтажа</div>
+                                <div class="tariff-grid">
+                                    <div class="tariff-card" data-reels-type="basic">
+                                        <div class="tariff-name">Базовый</div>
+                                        <div class="tariff-price">1 000 ₽/ролик</div>
+                                        <ul class="work-list">
+                                            <li>Нарезка исходников</li>
+                                            <li>Субтитры (статичные)</li>
+                                            <li>Обработка звука (шумоподавление)</li>
+                                            <li>Базовая цветокоррекция</li>
+                                            <li>Подбор музыки</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tariff-card active" data-reels-type="dynamic">
+                                        <div class="tariff-name">Динамичный</div>
+                                        <div class="tariff-price">3 500 ₽/ролик</div>
+                                        <ul class="work-list">
+                                            <li>Всё из базового</li>
+                                            <li>Акценты в субтитрах (анимация)</li>
+                                            <li>Вставки (B-roll, мемы, графика)</li>
+                                            <li>Анимация на субтитрах</li>
+                                            <li>2 круга бесплатных правок</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <div class="option-label">Количество роликов</div>
+                                <div class="range-control">
+                                    <button class="range-btn" id="reels-qty-decr">−</button>
+                                    <span class="range-value" id="reels-qty-display">4</span>
+                                    <input type="range" id="reels-qty-slider" min="1" max="20" value="4" class="range-slider">
+                                    <button class="range-btn" id="reels-qty-incr">+</button>
+                                </div>
+                                <ul class="discount-list">
+                                    <li>5% скидка на динамичный тариф при заказе от 10 роликов</li>
+                                    <li>10% скидка от 15 роликов</li>
+                                    <li>15% скидка от 20 роликов</li>
+                                </ul>
+                            </div>
+
+                            <div class="option-group">
+                                <div class="option-label">Дополнительно (за штуку)</div>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="reels-script">
+                                    <span>Поиск идей и сценарий (+1 500₽)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="reels-cover">
+                                    <span>Обложка (+2 000₽)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Съёмка -->
+                        <div id="shoot-options" class="category-options hidden">
+                            <div class="option-group">
+                                <div class="option-label">Тип съёмки</div>
+                                <div class="tariff-grid">
+                                    <div class="tariff-card" data-shoot-type="head">
+                                        <div class="tariff-name">Говорящая голова</div>
+                                        <div class="tariff-price">2 500 ₽/час</div>
+                                        <ul class="work-list">
+                                            <li>Две камеры (крупный + средний план)</li>
+                                            <li>Профессиональный свет (3 источника)</li>
+                                            <li>Качественный звук</li>
+                                            <li>Студия или выезд по городу</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tariff-card active" data-shoot-type="dynamic">
+                                        <div class="tariff-name">Динамичная</div>
+                                        <div class="tariff-price">5 000 ₽/час</div>
+                                        <ul class="work-list">
+                                            <li>Всё из "Говорящей головы"</li>
+                                            <li>Несколько ракурсов</li>
+                                            <li>Разные планы (детали, общие)</li>
+                                            <li>Активное движение камеры</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <div class="option-label">Количество часов</div>
+                                <div class="range-control">
+                                    <button class="range-btn" id="shoot-hours-decr">−</button>
+                                    <span class="range-value" id="shoot-hours-display">2</span>
+                                    <input type="range" id="shoot-hours-slider" min="1" max="10" value="2" class="range-slider">
+                                    <button class="range-btn" id="shoot-hours-incr">+</button>
+                                </div>
+                                <p class="discount-note">Скидка 15% при заказе от 3 часов</p>
+                            </div>
+
+                            <div class="option-group">
+                                <div class="option-label">Дополнительные услуги</div>
+                                <label class="checkbox-label"><input type="checkbox" id="shoot-studio"><span>Подобрать и арендовать студию (+500₽)</span></label>
+                                <label class="checkbox-label"><input type="checkbox" id="shoot-extracam"><span>Дополнительная камера (+1 000₽)</span></label>
+                                <label class="checkbox-label"><input type="checkbox" id="shoot-mua"><span>Найти визажиста (+1 500₽ организация)</span></label>
+                                <label class="checkbox-label"><input type="checkbox" id="shoot-stylist"><span>Найти стилиста (+1 500₽ организация)</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Подкасты -->
+                        <div id="podcast-options" class="category-options hidden">
+                            <label class="checkbox-label"><input type="checkbox" id="podcast-need-shoot"><span>Нужна съёмка подкаста</span></label>
+                            <div id="podcast-shoot-block" class="hidden sub-block">
+                                <div class="option-group">
+                                    <div class="option-label">Тип съёмки</div>
+                                    <label class="radio-label"><input type="radio" name="podcast-shoot-type" value="standard" checked><span>Стандартная (4 500₽/2 часа)</span></label>
+                                    <label class="radio-label"><input type="radio" name="podcast-shoot-type" value="extended"><span>Расширенная (+ доп. час)</span></label>
+                                </div>
+                                <div class="option-group">
+                                    <div class="option-label">Дополнительные часы (сверх 2)</div>
+                                    <div class="range-control">
+                                        <span class="range-value" id="podcast-extra-hours-display">0</span>
+                                        <input type="range" id="podcast-extra-hours" min="0" max="5" value="0" step="1" class="range-slider">
+                                    </div>
+                                    <p class="note">+2 500₽ за каждый доп. час</p>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <div class="option-label">Обработка материала (до 1.5 часов)</div>
+                                <div class="tariff-grid">
+                                    <div class="tariff-card" data-podcast-edit="standard">
+                                        <div class="tariff-name">Стандарт — 15 000 ₽</div>
+                                        <ul class="work-list">
+                                            <li>Мультикамерная нарезка</li>
+                                            <li>Синхронизация аудио/видео</li>
+                                            <li>Представление гостей (таймкоды, имена)</li>
+                                            <li>Плашки подписки</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tariff-card active" data-podcast-edit="pro">
+                                        <div class="tariff-name">Продвинутый — 25 000 ₽</div>
+                                        <ul class="work-list">
+                                            <li>Всё из стандарта</li>
+                                            <li>Цитаты (до 10 шт)</li>
+                                            <li>Видео/фото вставки (до 5 шт)</li>
+                                            <li>Динамичный трейлер</li>
+                                            <li>Вертикальная адаптация (10 отрезков на рилсы)</li>
+                                            <li>Скидка 15% на монтаж рилсов</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <div class="option-label">Дополнительно</div>
+                                <label class="checkbox-label"><input type="checkbox" id="podcast-studio"><span>Поиск подкаст-студии (+500₽)</span></label>
+                                <label class="checkbox-label"><input type="checkbox" id="podcast-cover"><span>Дизайн обложки (+1 500₽)</span></label>
+                                <label class="checkbox-label"><input type="checkbox" id="podcast-seo"><span>SEO-оптимизация (+2 000₽)</span></label>
+                            </div>
+                        </div>
+
+                        <!-- YouTube -->
+                        <div id="youtube-options" class="category-options hidden">
+                            <div class="option-group">
+                                <div class="option-label">Тариф монтажа (цена за минуту)</div>
+                                <div class="tariff-grid">
+                                    <div class="tariff-card" data-youtube-tariff="minimal">
+                                        <div class="tariff-name">Минимальный — 1 000 ₽/мин</div>
+                                        <ul class="work-list">
+                                            <li>Нарезка исходников</li>
+                                            <li>Простые вставки</li>
+                                            <li>Первичная обработка звука</li>
+                                            <li>Базовая цветокоррекция</li>
+                                            <li>Музыка</li>
+                                            <li>Монтаж от 3 минут</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tariff-card active" data-youtube-tariff="standard">
+                                        <div class="tariff-name">Стандарт — 1 500 ₽/мин</div>
+                                        <ul class="work-list">
+                                            <li>Всё из минимального</li>
+                                            <li>Минимум 3 музыкальных трека</li>
+                                            <li>Стилизация вставок</li>
+                                            <li>Саунд-дизайн</li>
+                                            <li>Работа с цветокоррекцией</li>
+                                            <li>Обработка звука (профессиональная)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tariff-card" data-youtube-tariff="unique">
+                                        <div class="tariff-name">Уникальный — 2 500 ₽/мин</div>
+                                        <ul class="work-list">
+                                            <li>Всё из стандарта</li>
+                                            <li>Сложная анимация (3D-элементы)</li>
+                                            <li>Продвинутый моушн-дизайн</li>
+                                            <li>Цветокоррекция уровня кино</li>
+                                            <li>Индивидуальные переходы</li>
+                                            <li>Звуковой дизайн премиум</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <div class="option-label">Длительность видео (минут)</div>
+                                <div class="range-control">
+                                    <button class="range-btn" id="youtube-min-decr">−</button>
+                                    <span class="range-value" id="youtube-min-display">5</span>
+                                    <input type="range" id="youtube-min-slider" min="1" max="60" value="5" class="range-slider">
+                                    <button class="range-btn" id="youtube-min-incr">+</button>
+                                </div>
+                            </div>
+
+                            <label class="checkbox-label"><input type="checkbox" id="youtube-need-shoot"><span>Нужна съёмка</span></label>
+                            <div id="youtube-shoot-block" class="hidden sub-block">
+                                <div class="option-group">
+                                    <div class="option-label">Тип съёмки</div>
+                                    <label class="radio-label"><input type="radio" name="youtube-shoot-type" value="videographer" checked><span>Аренда видеографа (3 500₽/час)</span></label>
+                                    <label class="radio-label"><input type="radio" name="youtube-shoot-type" value="head"><span>Говорящая голова (2 500₽/час)</span></label>
+                                    <p class="note">Оборудование: 2 источника света, микрофоны (петлички), 2 камеры</p>
+                                </div>
+                                <div class="option-group">
+                                    <div class="option-label">Количество часов съёмки</div>
+                                    <div class="range-control">
+                                        <span class="range-value" id="youtube-shoot-hours-display">1</span>
+                                        <input type="range" id="youtube-shoot-hours" min="1" max="8" value="1" class="range-slider">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <div class="option-label">Дополнительно</div>
+                                <label class="checkbox-label"><input type="checkbox" id="youtube-cover"><span>Обложка для YouTube (+2 000₽)</span></label>
+                                <label class="checkbox-label"><input type="checkbox" id="youtube-seo"><span>SEO-оптимизация (+2 000₽)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правая панель (итог) -->
+                    <div class="calculator-summary glass-card">
+                        <div class="summary-header">
+                            <span class="summary-label">Ориентир по бюджету</span>
+                            <span class="live-badge">live</span>
+                        </div>
+                        <div class="total-price" id="total-price">0 ₽</div>
+                        <div class="price-note">Предварительная стоимость. Окончательная цена зависит от сложности.</div>
+                        <div class="breakdown" id="breakdown">
+                            <div class="breakdown-item"><span>Услуга</span><span class="value" id="service-cost">0 ₽</span></div>
+                            <div class="breakdown-item"><span>Дополнительно</span><span class="value" id="addons-cost">0 ₽</span></div>
+                            <div class="breakdown-item"><span>Скидка</span><span class="value discount" id="discount-cost">− 0 ₽</span></div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-title">Состав заказа:</div>
+                            <div id="order-items" class="order-list"></div>
+                        </div>
+                        <div class="included-description" id="included-description">Выберите параметры, чтобы увидеть детали.</div>
+                        <button class="btn btn-primary full-width" id="calculate-btn">Получить точный расчёт</button>
+                    </div>
+                </div>
+
+                <!-- Блок с сообщением о предпочтениях -->
+                <div class="style-message">
+                    <p>🎨 <span>Есть фирменный стиль, особые пожелания по шрифтам или цветам?</span> Всё обсудим в чате — подстроимся под ваш бренд.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section id="reviews" class="reviews">
+            <div class="container">
+                <div class="reviews-card">
+                    <i data-lucide="message-circle" class="icon-large"></i>
+                    <h2>Упс! Кажется, мы забыли собрать отзывы.</h2>
+                    <p>Мы настолько увлеклись работой с проектами, что совсем не просили клиентов написать пару слов. Хотите это исправить?</p>
+                    <div class="review-offer">
+                        <p>Станьте первым, кто оставит честный отзыв о работе с нами.</p>
+                        <p class="offer-highlight">🎁 Скидка 15% на любой следующий заказ</p>
+                        <p class="offer-note">(или на текущий, если напишете отзыв сразу после сдачи)</p>
+                    </div>
+                    <p class="review-hint">Просто скажите нам об этом в заявке 😉</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма заявки -->
+        <section id="order" class="order">
+            <div class="container">
+                <div class="order-card">
+                    <div class="order-info">
+                        <div class="section-subtitle">Готовы начать?</div>
+                        <h2>Получите точный расчёт и коммерческое предложение</h2>
+                        <p>Работаем с юрлицами, договор, закрывающие документы. Если сомневаетесь — просто напишите «КП» в Telegram, пришлём расчёт за 5 минут.</p>
+                    </div>
+                    <div class="order-form">
+                        <div class="form-title">Заполните форму</div>
+                        <div class="form-subtitle">Поля ниже, и мы свяжемся с вами в течение 15 минут</div>
+                        <div class="form-fields">
+                            <input type="text" placeholder="Ваше имя" id="order-name">
+                            <input type="text" placeholder="Telegram / WhatsApp" id="order-contact">
+                            <textarea placeholder="Детали заказа (автоматически подставятся из калькулятора)" id="order-details">Выберите параметры в калькуляторе</textarea>
+                            <button class="btn btn-dark" id="submit-order">Отправить заявку</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Production. Видео, которое продаёт.</p>
+        </div>
+    </footer>
+
+    <!-- Подключение JS (будет отдельно) -->
+    <script src="./js/script.js"></script>
+</body>
+</html>
