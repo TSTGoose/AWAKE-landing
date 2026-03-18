@@ -26,6 +26,10 @@ let podcastEditType = 'pro';
 let podcastStudio = false;
 let podcastCover = false;
 let podcastSeo = false;
+let podcastNeedReels = false;
+let podcastReelsType = 'dynamic';
+let podcastReelsQty = 4;
+let podcastExtendedShoot = false;
 
 // YouTube
 let youtubeTariff = 'standard';
@@ -104,6 +108,14 @@ const podcastExtraHoursDisplay = document.getElementById('podcast-extra-hours-di
 const podcastStudioCheck = document.getElementById('podcast-studio');
 const podcastCoverCheck = document.getElementById('podcast-cover');
 const podcastSeoCheck = document.getElementById('podcast-seo');
+const podcastNeedReelsCheck = document.getElementById('podcast-need-reels');
+const podcastReelsBlock = document.getElementById('podcast-reels-block');
+const podcastReelsQtyDecr = document.getElementById('podcast-reels-qty-decr');
+const podcastReelsQtyIncr = document.getElementById('podcast-reels-qty-incr');
+const podcastReelsQtySlider = document.getElementById('podcast-reels-qty-slider');
+const podcastReelsQtyDisplay = document.getElementById('podcast-reels-qty-display');
+const podcastExtendedShootCheck = document.getElementById('podcast-extended-shoot');
+const podcastExtendedBlock = document.getElementById('podcast-extended-block');
 
 // YouTube
 const youtubeMinDisplay = document.getElementById('youtube-min-display');
@@ -182,18 +194,41 @@ function updateTotal() {
         description = `Съёмка: ${shootType === 'head' ? 'говорящая голова' : 'динамичная'}`;
     }
     else if (category === 'podcast') {
+        // Обработка — основная услуга
         if (podcastEditType === 'standard') service += PRICES.podcast.editStandard;
         else service += PRICES.podcast.editPro;
 
+        // Съёмка (дополнительно)
         if (podcastNeedShoot) {
-            service += PRICES.podcast.shootBase;
-            if (podcastShootType === 'extended') {
-                service += podcastExtraHours * PRICES.podcast.extraHour;
+            addons += PRICES.podcast.shootBase; // базовая съёмка 2 часа
+            if (podcastExtendedShoot) {
+                addons += podcastExtraHours * PRICES.podcast.extraHour;
             }
         }
+
+        // Рилсы (дополнительно)
+        if (podcastNeedReels) {
+            const reelPrice = podcastReelsType === 'basic' ? PRICES.reels.basic : PRICES.reels.dynamic;
+            const reelsCost = reelPrice * podcastReelsQty;
+            addons += reelsCost;
+            const reelsDiscount = reelsCost * 0.05;
+            discount += reelsDiscount; // скидка на рилсы
+        }
+
+        // Прочие дополнительные услуги
         if (podcastStudio) addons += PRICES.addons.podcastStudio;
         if (podcastCover) addons += PRICES.addons.podcastCover;
         if (podcastSeo) addons += PRICES.addons.podcastSeo;
+
+        // Скидка на съёмку (если есть)
+        if (podcastNeedShoot) {
+            const shootBase = PRICES.podcast.shootBase;
+            const shootExtra = podcastExtendedShoot ? podcastExtraHours * PRICES.podcast.extraHour : 0;
+            const shootTotal = shootBase + shootExtra;
+            const shootDiscountRate = getShootDiscount(2 + (podcastExtendedShoot ? podcastExtraHours : 0)); // скидка от общего количества часов
+            discount += shootTotal * shootDiscountRate;
+        }
+
         description = podcastEditType === 'standard' ? 'Обработка стандарт' : 'Обработка продвинутая';
     }
     else if (category === 'youtube') {
@@ -228,17 +263,21 @@ function updateTotal() {
         if (shootMua) items.push({ name: 'Поиск визажиста', qty: 1, unit: '' });
         if (shootStylist) items.push({ name: 'Поиск стилиста', qty: 1, unit: '' });
     } else if (category === 'podcast') {
-        if (podcastNeedShoot) items.push({ name: 'Съёмка подкаста', qty: 1, unit: 'компл' });
+        if (podcastNeedShoot) {const totalShootHours = 2 + (podcastExtendedShoot ? podcastExtraHours : 0); items.push({ name: 'Съёмка подкаста', qty: totalShootHours, unit: 'ч' });}
         items.push({ name: podcastEditType === 'standard' ? 'Обработка (стандарт)' : 'Обработка (продвинутый)', qty: 1, unit: 'выпуск' });
         if (podcastStudio) items.push({ name: 'Поиск студии', qty: 1, unit: '' });
         if (podcastCover) items.push({ name: 'Обложка', qty: 1, unit: '' });
         if (podcastSeo) items.push({ name: 'SEO', qty: 1, unit: '' });
+        if (podcastNeedReels) {
+            items.push({ name: `Рилсы (${podcastReelsType === 'basic' ? 'базовый' : 'динамичный'})`, qty: podcastReelsQty, unit: 'роликов' });
+        }
     } else if (category === 'youtube') {
         items.push({ name: `Монтаж (${youtubeTariff})`, qty: youtubeMinutes, unit: 'мин' });
         if (youtubeNeedShoot) items.push({ name: youtubeShootType === 'videographer' ? 'Аренда видеографа' : 'Говорящая голова', qty: youtubeShootHours, unit: 'ч' });
         if (youtubeCover) items.push({ name: 'Обложка YouTube', qty: 1, unit: '' });
         if (youtubeSeo) items.push({ name: 'SEO YouTube', qty: 1, unit: '' });
     }
+
     orderItemsDiv.innerHTML = items.map(i => `<div class="order-item"><span>${i.name}</span><span class="value">${i.qty} ${i.unit}</span></div>`).join('');
 
     // Автозаполнение формы
@@ -311,12 +350,43 @@ document.querySelectorAll('#podcast-options .tariff-card[data-podcast-edit]').fo
     });
 });
 
+// Обработчики для "Нужны рилсы"
+podcastNeedReelsCheck.addEventListener('change', (e) => {
+    podcastNeedReels = e.target.checked;
+    podcastReelsBlock.classList.toggle('hidden', !podcastNeedReels);
+    updateTotal();
+});
+
+// Выбор тарифа рилсов (карточки)
+document.querySelectorAll('#podcast-options .tariff-card[data-podcast-reels-type]').forEach(card => {
+    card.addEventListener('click', function() {
+        podcastReelsType = this.dataset.podcastReelsType;
+        // Активируем только карточки внутри этого блока
+        document.querySelectorAll('#podcast-options .tariff-card[data-podcast-reels-type]').forEach(c => {
+            c.classList.remove('active');
+        });
+        this.classList.add('active');
+        updateTotal();
+    });
+});
+
+function updatePodcastReelsQty(value) {
+    podcastReelsQty = Math.max(1, Math.min(20, value));
+    podcastReelsQtyDisplay.innerText = podcastReelsQty;
+    podcastReelsQtySlider.value = podcastReelsQty;
+    updateTotal();
+}
+podcastReelsQtyDecr.addEventListener('click', () => updatePodcastReelsQty(podcastReelsQty - 1));
+podcastReelsQtyIncr.addEventListener('click', () => updatePodcastReelsQty(podcastReelsQty + 1));
+podcastReelsQtySlider.addEventListener('input', (e) => updatePodcastReelsQty(parseInt(e.target.value)));
+
 podcastNeedShootCheck.addEventListener('change', (e) => {
     podcastNeedShoot = e.target.checked;
     podcastShootBlock.classList.toggle('hidden', !podcastNeedShoot);
     updateTotal();
 });
 
+// Радио для типа съёмки (если используется) — можно оставить, но они не активны сейчас
 document.querySelectorAll('input[name="podcast-shoot-type"]').forEach(radio => {
     radio.addEventListener('change', (e) => {
         podcastShootType = e.target.value;
@@ -324,6 +394,16 @@ document.querySelectorAll('input[name="podcast-shoot-type"]').forEach(radio => {
     });
 });
 
+// Расширенная съёмка (чекбокс)
+if (podcastExtendedShootCheck) {
+    podcastExtendedShootCheck.addEventListener('change', (e) => {
+        podcastExtendedShoot = e.target.checked;
+        if (podcastExtendedBlock) podcastExtendedBlock.classList.toggle('hidden', !podcastExtendedShoot);
+        updateTotal();
+    });
+}
+
+// Дополнительные часы
 podcastExtraHoursSlider.addEventListener('input', (e) => {
     podcastExtraHours = parseInt(e.target.value);
     podcastExtraHoursDisplay.innerText = podcastExtraHours;

@@ -195,6 +195,18 @@ body {
     margin: 0 auto;
 }
 
+.hero .container {
+    text-align: center;
+}
+.hero-title {
+    text-align: center;
+}
+.hero-badge {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 @media (min-width: 768px) {
     .hero-title {
         font-size: 4.5rem;
@@ -892,7 +904,7 @@ section {
 
 /* Блок сообщения о предпочтениях */
 .style-message {
-    margin-top: 2rem;
+    margin: 2rem 0;
     padding: 1.25rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-light);
@@ -970,10 +982,13 @@ section {
 .offer-note {
     font-size: 0.875rem;
     color: var(--text-secondary);
+    margin-top: 1rem;
+
 }
 
 .review-hint {
-    margin-top: 1.5rem;
+    margin: 2rem 0;
+    padding-top: 2rem;
     color: var(--text-secondary);
 }
 

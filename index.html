@@ -217,6 +217,7 @@
 
                         <!-- Reels / Shorts -->
                         <div id="reels-options" class="category-options">
+                            <!-- В #reels-options, перед блоком с количеством роликов -->
                             <div class="option-group">
                                 <div class="option-label">Тип монтажа</div>
                                 <div class="tariff-grid">
@@ -327,16 +328,22 @@
                             <div id="podcast-shoot-block" class="hidden sub-block">
                                 <div class="option-group">
                                     <div class="option-label">Тип съёмки</div>
-                                    <label class="radio-label"><input type="radio" name="podcast-shoot-type" value="standard" checked><span>Стандартная (4 500₽/2 часа)</span></label>
-                                    <label class="radio-label"><input type="radio" name="podcast-shoot-type" value="extended"><span>Расширенная (+ доп. час)</span></label>
-                                </div>
-                                <div class="option-group">
-                                    <div class="option-label">Дополнительные часы (сверх 2)</div>
-                                    <div class="range-control">
-                                        <span class="range-value" id="podcast-extra-hours-display">0</span>
-                                        <input type="range" id="podcast-extra-hours" min="0" max="5" value="0" step="1" class="range-slider">
+                                    <!-- Вместо двух радио оставляем только базовую, а расширение делаем чекбоксом -->
+                                    <div class="radio-label" style="opacity: 0.8; background: rgba(255,255,255,0.03); margin-bottom: 0.5rem;">
+                                        <span>Стандартная съёмка (4 500₽/2 часа)</span>
                                     </div>
-                                    <p class="note">+2 500₽ за каждый доп. час</p>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="podcast-extended-shoot">
+                                        <span>Расширенная съёмка (+ доп. часы)</span>
+                                    </label>
+                                    <div id="podcast-extended-block" class="hidden sub-block">
+                                        <div class="option-label">Дополнительные часы (сверх 2)</div>
+                                        <div class="range-control">
+                                            <span class="range-value" id="podcast-extra-hours-display">0</span>
+                                            <input type="range" id="podcast-extra-hours" min="0" max="5" value="0" step="1" class="range-slider">
+                                        </div>
+                                        <p class="note">+2 500₽ за каждый доп. час</p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -371,6 +378,46 @@
                                 <label class="checkbox-label"><input type="checkbox" id="podcast-studio"><span>Поиск подкаст-студии (+500₽)</span></label>
                                 <label class="checkbox-label"><input type="checkbox" id="podcast-cover"><span>Дизайн обложки (+1 500₽)</span></label>
                                 <label class="checkbox-label"><input type="checkbox" id="podcast-seo"><span>SEO-оптимизация (+2 000₽)</span></label>
+                            </div>
+
+                            <!-- Нужны рилсы (новый блок) -->
+                            <div class="option-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="podcast-need-reels">
+                                    <span>Нужны рилсы (скидка 5% на монтаж рилсов)</span>
+                                </label>
+                                <div id="podcast-reels-block" class="hidden sub-block">
+                                    <div class="option-label">Тип монтажа рилсов</div>
+                                    <div class="tariff-grid">
+                                        <div class="tariff-card" data-podcast-reels-type="basic">
+                                            <div class="tariff-name">Базовый</div>
+                                            <div class="tariff-price">1 000 ₽/ролик</div>
+                                            <ul class="work-list">
+                                                <li>Нарезка исходников</li>
+                                                <li>Субтитры (статичные)</li>
+                                                <li>Обработка звука</li>
+                                                <li>Базовая цветокоррекция</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tariff-card active" data-podcast-reels-type="dynamic">
+                                            <div class="tariff-name">Динамичный</div>
+                                            <div class="tariff-price">3 500 ₽/ролик</div>
+                                            <ul class="work-list">
+                                                <li>Всё из базового</li>
+                                                <li>Акценты в субтитрах</li>
+                                                <li>B-roll, графика</li>
+                                                <li>2 круга правок</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="option-label">Количество рилсов</div>
+                                    <div class="range-control">
+                                        <button class="range-btn" id="podcast-reels-qty-decr">−</button>
+                                        <span class="range-value" id="podcast-reels-qty-display">4</span>
+                                        <input type="range" id="podcast-reels-qty-slider" min="1" max="20" value="4" class="range-slider">
+                                        <button class="range-btn" id="podcast-reels-qty-incr">+</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -468,14 +515,13 @@
                             <div id="order-items" class="order-list"></div>
                         </div>
                         <div class="included-description" id="included-description">Выберите параметры, чтобы увидеть детали.</div>
+
+                        <!-- Перенесённый блок -->
+                        <div class="style-message">
+                            <p>🎨 <span>Есть фирменный стиль, особые пожелания по шрифтам или цветам?</span> Всё обсудим в чате — подстроимся под ваш бренд.</p>
+                        </div>
                         <button class="btn btn-primary full-width" id="calculate-btn">Получить точный расчёт</button>
                     </div>
-                </div>
-
-                <!-- Блок с сообщением о предпочтениях -->
-                <div class="style-message">
-                    <p>🎨 <span>Есть фирменный стиль, особые пожелания по шрифтам или цветам?</span> Всё обсудим в чате — подстроимся под ваш бренд.</p>
-                </div>
             </div>
         </section>
 
