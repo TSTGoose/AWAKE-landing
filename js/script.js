@@ -1,3 +1,30 @@
+const CONFIG = {
+    prices: {
+        reels: { basic: 1000, dynamic: 3500 },
+        shoot: { head: 2500, dynamic: 5000 },
+        podcast: { editStandard: 15000, editPro: 25000, shootBase: 4500, extraHour: 2500 },
+        youtube: { minimal: 1000, standard: 1500, unique: 2500, videographer: 3500, head: 2500 },
+        addons: {
+            reelsScript: 1500,
+            reelsCover: 2000,
+            shootStudio: 500,
+            shootExtraCam: 1000,
+            shootMua: 1500,
+            shootStylist: 1500,
+            podcastStudio: 500,
+            podcastCover: 1500,
+            podcastSeo: 2000,
+            youtubeCover: 2000,
+            youtubeSeo: 2000
+        }
+    },
+    discounts: {
+        reels: { threshold10: 0.05, threshold15: 0.10, threshold20: 0.15 },
+        shoot: { threshold3: 0.15 },
+        podcastReels: 0.25 // 25% скидка на рилсы в подкастах
+    }
+};
+
 // Инициализация Lucide иконок
 lucide.createIcons();
 
@@ -174,72 +201,73 @@ function updateTotal() {
     let description = '';
 
     if (category === 'reels') {
-        const pricePerReel = reelsType === 'basic' ? PRICES.reels.basic : PRICES.reels.dynamic;
+        const pricePerReel = reelsType === 'basic' ? CONFIG.prices.reels.basic : CONFIG.prices.reels.dynamic;
         service = pricePerReel * reelsQty;
-        if (reelsScript) addons += PRICES.addons.reelsScript * reelsQty;
-        if (reelsCover) addons += PRICES.addons.reelsCover * reelsQty;
+        if (reelsScript) addons += CONFIG.prices.addons.reelsScript * reelsQty;
+        if (reelsCover) addons += CONFIG.prices.addons.reelsCover * reelsQty;
         const discountRate = getReelsDiscount(reelsQty);
         if (reelsType === 'dynamic') discount = service * discountRate;
         description = reelsType === 'basic' ? 'Базовый монтаж' : 'Динамичный монтаж';
     }
     else if (category === 'shoot') {
-        const pricePerHour = shootType === 'head' ? PRICES.shoot.head : PRICES.shoot.dynamic;
+        const pricePerHour = shootType === 'head' ? CONFIG.prices.shoot.head : CONFIG.prices.shoot.dynamic;
         service = pricePerHour * shootHours;
         const discountRate = getShootDiscount(shootHours);
         discount = service * discountRate;
-        if (shootStudio) addons += PRICES.addons.shootStudio;
-        if (shootExtraCam) addons += PRICES.addons.shootExtraCam;
-        if (shootMua) addons += PRICES.addons.shootMua;
-        if (shootStylist) addons += PRICES.addons.shootStylist;
+        if (shootStudio) addons += CONFIG.prices.addons.shootStudio;
+        if (shootExtraCam) addons += CONFIG.prices.addons.shootExtraCam;
+        if (shootMua) addons += CONFIG.prices.addons.shootMua;
+        if (shootStylist) addons += CONFIG.prices.addons.shootStylist;
         description = `Съёмка: ${shootType === 'head' ? 'говорящая голова' : 'динамичная'}`;
     }
     else if (category === 'podcast') {
-        // Обработка — основная услуга
-        if (podcastEditType === 'standard') service += PRICES.podcast.editStandard;
-        else service += PRICES.podcast.editPro;
+        // Основная услуга — обработка
+        if (podcastEditType === 'standard') service += CONFIG.prices.podcast.editStandard;
+        else service += CONFIG.prices.podcast.editPro;
 
         // Съёмка (дополнительно)
         if (podcastNeedShoot) {
-            addons += PRICES.podcast.shootBase; // базовая съёмка 2 часа
+            addons += CONFIG.prices.podcast.shootBase; // базовая 2 часа
             if (podcastExtendedShoot) {
-                addons += podcastExtraHours * PRICES.podcast.extraHour;
+                addons += podcastExtraHours * CONFIG.prices.podcast.extraHour;
             }
         }
 
         // Рилсы (дополнительно)
         if (podcastNeedReels) {
-            const reelPrice = podcastReelsType === 'basic' ? PRICES.reels.basic : PRICES.reels.dynamic;
+            const reelPrice = podcastReelsType === 'basic' ? CONFIG.prices.reels.basic : CONFIG.prices.reels.dynamic;
             const reelsCost = reelPrice * podcastReelsQty;
             addons += reelsCost;
-            const reelsDiscount = reelsCost * 0.05;
-            discount += reelsDiscount; // скидка на рилсы
+            // Скидка на рилсы
+            discount += reelsCost * CONFIG.discounts.podcastReels;
         }
 
         // Прочие дополнительные услуги
-        if (podcastStudio) addons += PRICES.addons.podcastStudio;
-        if (podcastCover) addons += PRICES.addons.podcastCover;
-        if (podcastSeo) addons += PRICES.addons.podcastSeo;
+        if (podcastStudio) addons += CONFIG.prices.addons.podcastStudio;
+        if (podcastCover) addons += CONFIG.prices.addons.podcastCover;
+        if (podcastSeo) addons += CONFIG.prices.addons.podcastSeo;
 
         // Скидка на съёмку (если есть)
         if (podcastNeedShoot) {
-            const shootBase = PRICES.podcast.shootBase;
-            const shootExtra = podcastExtendedShoot ? podcastExtraHours * PRICES.podcast.extraHour : 0;
+            const shootBase = CONFIG.prices.podcast.shootBase;
+            const shootExtra = podcastExtendedShoot ? podcastExtraHours * CONFIG.prices.podcast.extraHour : 0;
             const shootTotal = shootBase + shootExtra;
-            const shootDiscountRate = getShootDiscount(2 + (podcastExtendedShoot ? podcastExtraHours : 0)); // скидка от общего количества часов
+            const totalHours = 2 + (podcastExtendedShoot ? podcastExtraHours : 0);
+            const shootDiscountRate = getShootDiscount(totalHours); // используем ту же функцию
             discount += shootTotal * shootDiscountRate;
         }
 
         description = podcastEditType === 'standard' ? 'Обработка стандарт' : 'Обработка продвинутая';
     }
     else if (category === 'youtube') {
-        let pricePerMin = PRICES.youtube[youtubeTariff];
+        let pricePerMin = CONFIG.prices.youtube[youtubeTariff];
         service = pricePerMin * youtubeMinutes;
         if (youtubeNeedShoot) {
-            const shootPrice = youtubeShootType === 'videographer' ? PRICES.youtube.videographer : PRICES.youtube.head;
+            const shootPrice = youtubeShootType === 'videographer' ? CONFIG.prices.youtube.videographer : CONFIG.prices.youtube.head;
             service += shootPrice * youtubeShootHours;
         }
-        if (youtubeCover) addons += PRICES.addons.youtubeCover;
-        if (youtubeSeo) addons += PRICES.addons.youtubeSeo;
+        if (youtubeCover) addons += CONFIG.prices.addons.youtubeCover;
+        if (youtubeSeo) addons += CONFIG.prices.addons.youtubeSeo;
         description = `Монтаж YouTube (${youtubeTariff})`;
     }
 
@@ -250,7 +278,7 @@ function updateTotal() {
     discountSpan.innerText = '− ' + Math.round(discount).toLocaleString('ru-RU') + ' ₽';
     includedDesc.innerText = description || 'Выберите параметры';
 
-    // Построение корзины
+    // Построение корзины (items)
     let items = [];
     if (category === 'reels') {
         items.push({ name: reelsType === 'basic' ? 'Базовый монтаж' : 'Динамичный монтаж', qty: reelsQty, unit: 'роликов' });
@@ -263,7 +291,10 @@ function updateTotal() {
         if (shootMua) items.push({ name: 'Поиск визажиста', qty: 1, unit: '' });
         if (shootStylist) items.push({ name: 'Поиск стилиста', qty: 1, unit: '' });
     } else if (category === 'podcast') {
-        if (podcastNeedShoot) {const totalShootHours = 2 + (podcastExtendedShoot ? podcastExtraHours : 0); items.push({ name: 'Съёмка подкаста', qty: totalShootHours, unit: 'ч' });}
+        if (podcastNeedShoot) {
+            const totalShootHours = 2 + (podcastExtendedShoot ? podcastExtraHours : 0);
+            items.push({ name: 'Съёмка подкаста', qty: totalShootHours, unit: 'ч' });
+        }
         items.push({ name: podcastEditType === 'standard' ? 'Обработка (стандарт)' : 'Обработка (продвинутый)', qty: 1, unit: 'выпуск' });
         if (podcastStudio) items.push({ name: 'Поиск студии', qty: 1, unit: '' });
         if (podcastCover) items.push({ name: 'Обложка', qty: 1, unit: '' });
@@ -288,7 +319,6 @@ function updateTotal() {
         orderDetails.value = detailsText;
     }
 }
-
 // ========== Обработчики событий ==========
 // Вкладки
 tabBtns.forEach(btn => {
