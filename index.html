@@ -35,13 +35,22 @@
                 <a href="#reviews">Отзывы</a>
                 <a href="#order">Заявка</a>
             </nav>
+
             <a href="#order" class="header-btn">Оставить заявку</a>
         </div>
     </header>
 
     <main>
         <!-- HERO секция -->
-        <section class="hero">
+       <section class="hero">
+            <!-- Видео фон -->
+            <div class="hero-video">
+                <video autoplay muted loop playsinline poster="poster.jpg">
+                    <source src="showreel.mp4" type="video/mp4">
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+
             <div class="container">
                 <span class="hero-badge">Качество топ‑студии · цена фрилансера</span>
                 <h1 class="hero-title">Сколько клиентов вы теряете из-за <span class="gradient-text">любительского видео</span>?</h1>
@@ -52,108 +61,158 @@
                     <a href="#calculator" class="btn btn-primary">Рассчитать стоимость за 1 минуту <i data-lucide="arrow-right" class="icon"></i></a>
                     <a href="#cases" class="btn btn-outline"><i data-lucide="play" class="icon"></i> Смотреть кейсы</a>
                 </div>
-                <!-- Метрики -->
+
+                <!-- Метрики (новые) -->
                 <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">117K</div>
-                        <div class="metric-label">подписчиков у Юлии Шустрой</div>
+                    <div class="metric-card" data-value="117">
+                        <div class="metric-value">0 тыс</div>
+                        <div class="metric-label">подписчиков привели клиентам</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">6.5M</div>
-                        <div class="metric-label">просмотров у одного рилс</div>
+                    <div class="metric-card" data-value="700">
+                        <div class="metric-value">0 тыс</div>
+                        <div class="metric-label">средний охват рилс</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">150+</div>
-                        <div class="metric-label">рилс/мес для Vitruvin</div>
+                    <div class="metric-card" data-value="590">
+                        <div class="metric-value">0+ рилс</div>
+                        <div class="metric-label">в месяц все проекты</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">1.5 г</div>
-                        <div class="metric-label">непрерывного сотрудничества</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Блок "Нам доверяют" (клиенты) -->
-        <section class="clients">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-subtitle">Доверие</div>
-                    <h2 class="section-title">НАМ ДОВЕРЯЮТ ТОП-ЭКСПЕРТЫ И БРЕНДЫ</h2>
-                </div>
-                <div class="clients-grid">
-                    <div class="client-card">
-                        <div class="client-name">Юлия Шустрая</div>
-                        <div class="client-role">репортёр «Россия 24», курсы «Дизайн речи»</div>
-                        <p class="client-desc">Закрыли набор на курсы. Отдельные рилс — миллионные просмотры. Аккаунт вырос до 117К.</p>
-                    </div>
-                    <div class="client-card">
-                        <div class="client-name">Кристина Егиазарова</div>
-                        <div class="client-role">Топ‑1 в нише астрологии</div>
-                        <p class="client-desc">440 рилс в месяц. Полное ведение контент-фабрики.</p>
-                    </div>
-                    <div class="client-card">
-                        <div class="client-name">Vitruvin</div>
-                        <div class="client-role">БАДы</div>
-                        <p class="client-desc">150+ рилс за месяц, продажи на сайт. Сотрудничество 1.5 года.</p>
-                    </div>
-                    <div class="client-card">
-                        <div class="client-name">Pro Voice</div>
-                        <div class="client-role">школа по голосу</div>
-                        <p class="client-desc">Упаковка контента для крупнейшей школы.</p>
-                    </div>
-                    <div class="client-card">
-                        <div class="client-name">Фестиваль «Студвесна»</div>
-                        <div class="client-role">Всероссийский</div>
-                        <p class="client-desc">Официальные видеографы в составе команды.</p>
-                    </div>
-                    <div class="client-card">
-                        <div class="client-name">PATRIOT</div>
-                        <div class="client-role">бренд</div>
-                        <p class="client-desc">Качественные обзорные видео для бренда.</p>
+                    <div class="metric-card" data-value="1.5">
+                        <div class="metric-value">0 лет</div>
+                        <div class="metric-label">среднее сотрудничество</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- КЕЙСЫ с видео-плейсхолдерами -->
-        <section id="cases" class="cases">
+        <!-- Бегущая строка "Нам доверяют" -->
+        <section class="trust-marquee">
+            <div class="marquee">
+                <div class="marquee-content" id="marquee-content">
+                    <!-- сюда из JSON будут подставлены бренды -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок больших кейсов (слайдер) -->
+        <section class="featured-cases">
             <div class="container">
                 <div class="section-header">
-                    <div class="section-subtitle">Кейсы</div>
-                    <h2 class="section-title">РЕЗУЛЬТАТЫ, КОТОРЫЕ ГОВОРЯТ САМИ ЗА СЕБЯ</h2>
+                    <div class="section-subtitle">Успешные кейсы</div>
+                    <h2 class="section-title">Результаты, которые говорят сами за себя</h2>
                 </div>
-                <div class="cases-grid">
-                    <div class="case-item">
-                        <div class="video-placeholder">
-                            <i data-lucide="play" class="icon-large"></i>
-                        </div>
-                        <div class="case-content">
-                            <h3>Юлия Шустрая: от 0 до 117 000 подписчиков</h3>
-                            <p class="case-task">Задача: рилсы для прогрева и продажи курсов по ораторскому мастерству (средний чек 80 000₽).</p>
-                            <ul class="case-results">
-                                <li>✓ Рост аккаунта до 117 000 подписчиков</li>
-                                <li>✓ Средний охват видео 20 000</li>
-                                <li>✓ Рилс-миллионник и один на 6.5 млн просмотров</li>
-                                <li>✓ Полное закрытие мест на курсах каждые 3 месяца</li>
-                            </ul>
+
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Слайд 1: AIUni -->
+                    <div class="slide">
+                        <div class="case-card">
+                            <div class="hero-row">
+                                <div class="case-video landscape" data-video-url="https://www.youtube.com/watch?v=example1">
+                                    <div class="video-placeholder"><i></i></div>
+                                </div>
+                                <div class="info-block">
+                                    <div class="case-badge">SUCCESS STORY</div>
+                                    <div class="case-title">AIUni — <span>онлайн университет нейросетей</span></div>
+                                    <div class="case-sub">Продюсирование канала с нуля до стабильной монетизации</div>
+                                    <div class="key-metrics">
+                                        <div class="key-metric"><div class="number" data-count="38">0</div><div class="label">видео</div></div>
+                                        <div class="key-metric"><div class="number" data-count="600">0</div><div class="label">тыс. просм.</div></div>
+                                        <div class="key-metric"><div class="number" data-count="10000">0</div><div class="label">подписчиков</div></div>
+                                        <div class="key-metric"><div class="number" data-count="118">0</div><div class="label">продаж</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task-done">
+                                <div class="task-card">
+                                    <h4>Задача</h4>
+                                    <div class="task-text">Продюсирование и развитие YouTube-канала. Вывод на монетизацию, достижение 5000 подписчиков, генерация заявок на обучение. Полное сопровождение: от стратегии до продаж.</div>
+                                </div>
+                                <div class="done-card">
+                                    <h4>Что сделано (1 этап)</h4>
+                                    <div class="services-list">
+                                        <span class="service-tag">Анализ ниши</span>
+                                        <span class="service-tag">Стратегия</span>
+                                        <span class="service-tag">Контент-план</span>
+                                        <span class="service-tag">Сценарии + обложки</span>
+                                        <span class="service-tag">Воронки продаж</span>
+                                        <span class="service-tag">Перелив в Telegram</span>
+                                        <span class="service-tag">Инфлюенсеры</span>
+                                        <span class="service-tag">Монтаж под ключ</span>
+                                        <span class="service-tag">Лид-магниты</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="monetization">
+                                <div class="monet-item"><div class="label">Средний чек</div><div class="monet-number">45 000 ₽</div></div>
+                                <div class="monet-item"><div class="label">Монетизация YouTube</div><div class="monet-number">+$1 732</div></div>
+                                <div class="extra-stats"><div>📱 Telegram: <span>7 000</span></div><div>⏱ 10 мес</div></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="case-item">
-                        <div class="video-placeholder">
-                            <i data-lucide="play" class="icon-large"></i>
-                        </div>
-                        <div class="case-content">
-                            <h3>Vitruvin: 150+ рилсов в месяц на протяжении 1.5 лет</h3>
-                            <p class="case-task">Бренд БАДов, масштабирование продаж через ИИ-рекламные рилс.</p>
-                            <ul class="case-results">
-                                <li>✓ 150+ рилсов за месяц, иногда 30 рилсов за сутки</li>
-                                <li>✓ Регулярные заказы на протяжении полутора лет</li>
-                                <li>✓ Стабильный поток заявок с видео</li>
-                            </ul>
+
+                    <!-- Слайд 2: Юлия Шустрая -->
+                    <div class="slide">
+                        <div class="case-card">
+                            <div class="hero-row">
+                                <div class="case-video portrait" data-video-url="https://www.instagram.com/reel/example2">
+                                    <div class="video-placeholder"><i></i></div>
+                                </div>
+                                <div class="info-block">
+                                    <div class="case-badge">SUCCESS STORY</div>
+                                    <div class="case-title">Юлия Шустрая — <span>ораторское мастерство</span></div>
+                                    <div class="case-sub">Рост блога и закрытие курсов через динамичные рилс</div>
+                                    <div class="key-metrics">
+                                        <div class="key-metric"><div class="number" data-count="117">0</div><div class="label">тыс. подписч.</div></div>
+                                        <div class="key-metric"><div class="number" data-count="20">0</div><div class="label">тыс. охват</div></div>
+                                        <div class="key-metric"><div class="number" data-count="6.5">0</div><div class="label">млн просм.</div></div>
+                                        <div class="key-metric"><div class="number" data-count="100">0</div><div class="label">% закрытия</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task-done">
+                                <div class="task-card">
+                                    <h4>Задача</h4>
+                                    <div class="task-text">Рилсы для прогрева и продажи курсов по ораторскому мастерству. Увеличить охваты, подписную базу и конверсию в покупку (средний чек 80 000 ₽).</div>
+                                </div>
+                                <div class="done-card">
+                                    <h4>Что сделано</h4>
+                                    <div class="services-list">
+                                        <span class="service-tag">Динамичный монтаж</span>
+                                        <span class="service-tag">Сценарии прогрева</span>
+                                        <span class="service-tag">B-roll, графика</span>
+                                        <span class="service-tag">Анимация субтитров</span>
+                                        <span class="service-tag">Адаптация под IG/TikTok</span>
+                                        <span class="service-tag">A/B тестирование</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="monetization">
+                                <div class="monet-item"><div class="label">Средний чек</div><div class="monet-number">80 000 ₽</div></div>
+                                <div class="monet-item"><div class="label">Рост</div><div class="monet-number">50k → 117k</div></div>
+                                <div class="extra-stats"><div>📈 Конверсия в покупку</div><div>⭐ Рилс-миллионники</div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="slider-controls">
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+                <div class="slider-hint">⇜ Свайпайте или скролльте ⇝</div>
+            </div>
+        </section>
+
+        <!-- Кейсы (горизонтальная лента) -->
+        <section class="cases">
+            <div class="section-header">
+                <h2 class="section-title">Все наши работы</h2>
+            </div>
+
+            <div class="nav">
+                <div class="track-wrapper">
+                    <div class="track" id="track"></div>
+                </div>
+                <button class="btn-nav btn-left" id="casesNavLeft">‹</button>
+                <button class="btn-nav btn-right" id="casesNavRight">›</button>
             </div>
         </section>
 
@@ -168,22 +227,22 @@
                     <div class="benefit-card">
                         <i data-lucide="calculator" class="icon-large"></i>
                         <h3>Прозрачный расчёт</h3>
-                        <p>Цена формируется сразу, без скрытых платежей.</p>
+                        <p>Цена формируется сразу, без скрытых платежей</p>
                     </div>
                     <div class="benefit-card">
                         <i data-lucide="clock" class="icon-large"></i>
                         <h3>Фиксированные сроки</h3>
-                        <p>Дедлайны не срываем: 5 роликов за 1 день.</p>
+                        <p>Дедлайны не срываем: 5 роликов за 1 день</p>
                     </div>
                     <div class="benefit-card">
                         <i data-lucide="list-checks" class="icon-large"></i>
                         <h3>Детали работ видны</h3>
-                        <p>В каждом тарифе расписано, что получите.</p>
+                        <p>В каждом тарифе расписано, что получите</p>
                     </div>
                     <div class="benefit-card">
                         <i data-lucide="palette" class="icon-large"></i>
                         <h3>Под ваш стиль</h3>
-                        <p>Адаптируем под фирменный стиль и пожелания.</p>
+                        <p>Адаптируем под фирменный стиль и пожелания</p>
                     </div>
                 </div>
             </div>
@@ -195,7 +254,7 @@
                 <div class="section-header">
                     <div class="section-subtitle">Калькулятор</div>
                     <h2 class="section-title">РАССЧИТАЙТЕ ТОЧНУЮ СТОИМОСТЬ ЗА 1 МИНУТУ</h2>
-                    <p class="section-description">Выберите услугу, настройте параметры и увидите итоговую цену и состав работ. Прозрачно, без скрытых платежей.</p>
+                    <p class="section-description">Выберите услугу, настройте параметры и увидите итоговую цену и состав работ. Прозрачно, без скрытых платежей</p>
                 </div>
 
                 <!-- Основной блок калькулятора -->
@@ -424,7 +483,23 @@
 
                         <!-- YouTube -->
                         <div id="youtube-options" class="category-options hidden">
-                            <div class="option-group">
+                                <div class="option-group">
+                                    <label class="checkbox-label"><input type="checkbox" id="youtube-need-shoot"><span>Нужна съёмка</span></label>
+                                <div id="youtube-shoot-block" class="hidden sub-block">
+                                    <div class="option-group">
+                                        <div class="option-label">Тип съёмки</div>
+                                        <label class="radio-label"><input type="radio" name="youtube-shoot-type" value="videographer" checked><span>Аренда видеографа (3 500₽/час)</span></label>
+                                        <label class="radio-label"><input type="radio" name="youtube-shoot-type" value="head"><span>Говорящая голова (2 500₽/час)</span></label>
+                                        <p class="note">Оборудование: 2 источника света, микрофоны (петлички), 2 камеры</p>
+                                    </div>
+                                    <div class="option-group">
+                                        <div class="option-label">Количество часов съёмки</div>
+                                        <div class="range-control">
+                                            <span class="range-value" id="youtube-shoot-hours-display">1</span>
+                                            <input type="range" id="youtube-shoot-hours" min="1" max="8" value="1" class="range-slider">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="option-label">Тариф монтажа (цена за минуту)</div>
                                 <div class="tariff-grid">
                                     <div class="tariff-card" data-youtube-tariff="minimal">
@@ -473,22 +548,7 @@
                                 </div>
                             </div>
 
-                            <label class="checkbox-label"><input type="checkbox" id="youtube-need-shoot"><span>Нужна съёмка</span></label>
-                            <div id="youtube-shoot-block" class="hidden sub-block">
-                                <div class="option-group">
-                                    <div class="option-label">Тип съёмки</div>
-                                    <label class="radio-label"><input type="radio" name="youtube-shoot-type" value="videographer" checked><span>Аренда видеографа (3 500₽/час)</span></label>
-                                    <label class="radio-label"><input type="radio" name="youtube-shoot-type" value="head"><span>Говорящая голова (2 500₽/час)</span></label>
-                                    <p class="note">Оборудование: 2 источника света, микрофоны (петлички), 2 камеры</p>
-                                </div>
-                                <div class="option-group">
-                                    <div class="option-label">Количество часов съёмки</div>
-                                    <div class="range-control">
-                                        <span class="range-value" id="youtube-shoot-hours-display">1</span>
-                                        <input type="range" id="youtube-shoot-hours" min="1" max="8" value="1" class="range-slider">
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                             <div class="option-group">
                                 <div class="option-label">Дополнительно</div>
@@ -505,7 +565,7 @@
                             <span class="live-badge">live</span>
                         </div>
                         <div class="total-price" id="total-price">0 ₽</div>
-                        <div class="price-note">Предварительная стоимость. Окончательная цена зависит от сложности.</div>
+                        <div class="price-note">Предварительная стоимость. Окончательная цена зависит от сложности</div>
                         <div class="breakdown" id="breakdown">
                             <div class="breakdown-item"><span>Услуга</span><span class="value" id="service-cost">0 ₽</span></div>
                             <div class="breakdown-item"><span>Дополнительно</span><span class="value" id="addons-cost">0 ₽</span></div>
@@ -515,11 +575,11 @@
                             <div class="order-title">Состав заказа:</div>
                             <div id="order-items" class="order-list"></div>
                         </div>
-                        <div class="included-description" id="included-description">Выберите параметры, чтобы увидеть детали.</div>
+                        <div class="included-description" id="included-description">Выберите параметры, чтобы увидеть детали</div>
 
                         <!-- Перенесённый блок -->
                         <div class="style-message">
-                            <p>🎨 <span>Есть фирменный стиль, особые пожелания по шрифтам или цветам?</span> Всё обсудим в чате — подстроимся под ваш бренд.</p>
+                            <p>🎨 <span>Есть фирменный стиль, особые пожелания по шрифтам или цветам?</span> Всё обсудим в чате — подстроимся под ваш бренд</p>
                         </div>
                         <button class="btn btn-primary full-width" id="calculate-btn">Получить точный расчёт</button>
                     </div>
@@ -534,7 +594,7 @@
                     <h2>Упс! Кажется, мы забыли собрать отзывы.</h2>
                     <p>Мы настолько увлеклись работой с проектами, что совсем не просили клиентов написать пару слов. Хотите это исправить?</p>
                     <div class="review-offer">
-                        <p>Станьте первым, кто оставит честный отзыв о работе с нами.</p>
+                        <p>Станьте первым, кто оставит честный отзыв о работе с нами</p>
                         <p class="offer-highlight">🎁 Скидка 15% на любой следующий заказ</p>
                         <p class="offer-note">(или на текущий, если напишете отзыв сразу после сдачи)</p>
                     </div>
@@ -550,7 +610,7 @@
                     <div class="order-info">
                         <div class="section-subtitle">Готовы начать?</div>
                         <h2>Получите точный расчёт и коммерческое предложение</h2>
-                        <p>Работаем с юрлицами, договор, закрывающие документы. Если сомневаетесь — просто напишите «КП» в Telegram, пришлём расчёт за 5 минут.</p>
+                        <p>Работаем с юрлицами, договор, закрывающие документы. Если сомневаетесь — просто напишите «КП» в Telegram, пришлём расчёт за 5 минут</p>
                     </div>
                     <div class="order-form">
                         <div class="form-title">Заполните форму</div>
@@ -565,16 +625,86 @@
                 </div>
             </div>
         </section>
+
+        <!-- Блок FAQ -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-subtitle">Ответы на вопросы</div>
+                    <h2 class="section-title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">Какие сроки выполнения?</div>
+                          <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                             5 рилсов – от 4 часов (базовый) до 1 рабочего дня (динамичный). YouTube-ролики – от 3 дней, сложные проекты оговариваем индивидуально.
+                            </div>
+                          </div>
+                        
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Сколько кругов правок включено?</div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">В динамичном тарифе Reels – 2 круга бесплатных правок. В остальных тарифах правки обсуждаются. Любые дополнительные правки – по договорённости.</div>
+                         </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Вы работаете с юрлицами? Есть договор?</div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Да, работаем с ИП и ООО, заключаем договор, предоставляем закрывающие документы (акты, счета).
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Как передаёте исходники и готовые видео?</div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Удобным для вас способом: облако (Google Drive, Яндекс.Диск), Telegram, WeTransfer. Для крупных проектов используем организованную систему с чек-листами.
+                            </div>
+                        </div>
+ 
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Можете срочно сделать монтаж?</div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Да, предусмотрена услуга «Срочный монтаж» (+50% к стоимости). Сроки согласовываем до старта.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Что, если мне не понравится результат?</div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Мы согласовываем ТЗ до начала работ, а по ходу правок доводим видео до идеала. Если вы недовольны финалом, вносим корректировки без дополнительной оплаты (в рамках оговоренных правок).
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
-            <p>© 2025 Production. Видео, которое продаёт.</p>
+            <p>© 2025 Production. Видео, которое продаёт</p>
         </div>
     </footer>
 
+    <!-- Фиксированная иконка Telegram -->
+    <a href="https://t.me/awakeprod" target="_blank" rel="noopener noreferrer" class="telegram-sticky" aria-label="Telegram">
+        <i data-lucide="send" class="icon"></i>
+        <span>Написать в Telegram</span>
+    </a>
+
     <!-- Подключение JS (будет отдельно) -->
     <script src="./js/script.js"></script>
+    
 </body>
 </html>

@@ -1,0 +1,105 @@
+{
+    "brands": [
+        "Юлия Шустрая",
+        "PATRIOT",
+        "VITRUVIN",
+        "AIUni",
+        "HSM Agency",
+        "PRO Voice",
+        "МФЦ",
+        "Роснефть"
+    ],
+    "cases": [
+        {
+            "name": "Юлия Шустрая",
+            "niche": "Онлайн-образование",
+            "description": "Рилсы для прогрева и продажи курсов по ораторскому мастерству. Средний чек 80 000 ₽.",
+            "stats": "50 000 → 117 000 подписчиков | Конверсия в покупку курса",
+            "videoLinks": [
+                "https://www.instagram.com/reel/DJHQ-kwoTnV/",
+                "https://www.instagram.com/reel/DM-fjE1IzBF/"
+            ],
+            "siteLink": "https://www.instagram.com/yuliashustraya/",
+            "format": "portrait",
+            "featured": true
+        },
+        {
+            "name": "PATRIOT",
+            "niche": "Техника",
+            "description": "Качественные обзорные видео техники.",
+            "stats": "Рост доверия | Обзорные видео под продажи",
+            "videoLinks": [
+                "https://disk.yandex.ru/i/EsPt-E9pSDh9wQ"
+            ],
+            "siteLink": "https://onlypatriot.com/",
+            "format": "landscape",
+            "featured": false
+        },
+        {
+            "name": "VITRUVIN",
+            "niche": "E-commerce / БАДы",
+            "description": "Бренд БАДов. 150+ рилс за месяц, продажи на сайт. Сотрудничество 1.5 года.",
+            "stats": "150+ рилс в месяц | Продажи на сайт, сотрудничество 1.5 года",
+            "videoLinks": [
+                "https://disk.yandex.ru/i/NuT_OO6H6xfOOQ"
+            ],
+            "siteLink": "https://vitruvin.ru/",
+            "format": "landscape",
+            "featured": false
+        },
+        {
+            "name": "AIUni",
+            "niche": "AI / онлайн-курсы",
+            "description": "Курсы по искусственному интеллекту. 38 уникальных видео под ключ, 600 000 просмотров за 10 месяцев, 10 000 подписчиков, 118 продаж (средний чек 45 000 ₽), монетизация +$1732.",
+            "stats": "600 000 просмотров | 118 продаж | +$1732 монетизации, 10 000 подписчиков",
+            "videoLinks": [
+                "https://www.youtube.com/@AIUni"
+            ],
+            "siteLink": "https://aiuni.ru/",
+            "format": "landscape",
+            "featured": true
+        },
+        {
+            "name": "HSM Agency",
+            "niche": "Маркетинг",
+            "description": "Конверсия на заявку с рекламных моушен-рилсов.",
+            "stats": "Конверсия с рекламных рилсов | Заявки от клиентов",
+            "videoLinks": [
+                "https://disk.yandex.ru/d/e3pzgUr6cq9UPg"
+            ],
+            "siteLink": "https://hsm.agency/",
+            "format": "landscape",
+            "featured": false
+        },
+        {
+            "name": "PRO Voice",
+            "niche": "Образование",
+            "description": "Упаковка контента для крупнейшей школы по голосу.",
+            "stats": "Упаковка контента | Крупнейшая школа по голосу",
+            "videoLinks": [],
+            "siteLink": "",
+            "format": "landscape",
+            "featured": false
+        },
+        {
+            "name": "МФЦ",
+            "niche": "Госсектор",
+            "description": "Корпоративные видео и промо-ролики.",
+            "stats": "Корпоративные промо | Видео для внутренних и внешних коммуникаций",
+            "videoLinks": [],
+            "siteLink": "",
+            "format": "landscape",
+            "featured": false
+        },
+        {
+            "name": "Роснефть",
+            "niche": "Крупный бизнес",
+            "description": "Корпоративный контент высокого уровня.",
+            "stats": "Контент высокого уровня | Корпоративные ролики, имиджевые видео",
+            "videoLinks": [],
+            "siteLink": "",
+            "format": "landscape",
+            "featured": false
+        }
+    ]
+}
